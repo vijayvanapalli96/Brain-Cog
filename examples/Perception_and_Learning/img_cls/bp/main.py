@@ -84,7 +84,7 @@ parser.add_argument('--interpolation', default='', type=str, metavar='NAME',
                     help='Image resize interpolation type (overrides model)')
 
 # Dataloader parameters
-parser.add_argument('-b', '--batch-size', type=int, default=128, metavar='N',
+parser.add_argument('-b', '--batch-size', type=int, default=32, metavar='N',
                     help='inputs batch size for training (default: 128)')
 parser.add_argument('-vb', '--validation-batch-size-multiplier', type=int, default=1, metavar='N',
                     help='ratio of validation batch size to training batch size (default: 1)')
@@ -246,7 +246,7 @@ parser.add_argument('--pin-mem', action='store_true', default=False,
                     help='Pin CPU memory in DataLoader for more efficient (sometimes) transfer to GPU.')
 parser.add_argument('--no-prefetcher', action='store_true', default=False,
                     help='disable fast prefetcher')
-parser.add_argument('--output', default='/data/floyed/BrainCog', type=str, metavar='PATH',
+parser.add_argument('--output', default='./output', type=str, metavar='PATH',
                     help='path to output folder (default: none, current dir)')
 parser.add_argument('--tensorboard-dir', default='./runs', type=str)
 parser.add_argument('--eval-metric', default='top1', type=str, metavar='EVAL_METRIC',
@@ -606,29 +606,66 @@ def main():
 
     # now config only for imnet
     data_config = resolve_data_config(vars(args), model=model, verbose=False)
-    loader_train, loader_eval, mixup_active, mixup_fn = eval('get_%s_data' % args.dataset)(
-        batch_size=args.batch_size,
-        step=args.step,
-        args=args,
-        _logge=_logger,
-        data_config=data_config,
-        num_aug_splits=num_aug_splits,
-        size=args.event_size,
-        mix_up=args.mix_up,
-        cut_mix=args.cut_mix,
-        event_mix=args.event_mix,
-        beta=args.cutmix_beta,
-        prob=args.cutmix_prob,
-        gaussian_n=args.gaussian_n,
-        num=args.cutmix_num,
-        noise=args.cutmix_noise,
-        num_classes=args.num_classes,
-        rand_aug=args.rand_aug,
-        randaug_n=args.randaug_n,
-        randaug_m=args.randaug_m,
-        portion=args.train_portion,
-        _logger=_logger,
-    )
+
+    if args.dataset == 'my_custom_data':
+        loader_train, loader_eval, mixup_active, mixup_fn, num_classes = get_my_custom_data(
+            batch_size=args.batch_size,
+            step=args.step,
+            workers=args.workers
+        )
+        # We need to update args.num_classes so the model is created with the right number of outputs
+        if model.num_cls != num_classes:
+            args.num_classes = num_classes
+            model = create_model(
+                args.model,
+                pretrained=args.pretrained,
+                num_classes=args.num_classes,
+                adaptive_node=args.adaptive_node,
+                dataset=args.dataset,
+                step=args.step,
+                encode_type=args.encode,
+                node_type=eval(args.node_type),
+                threshold=args.threshold,
+                tau=args.tau,
+                sigmoid_thres=args.sigmoid_thres,
+                requires_thres_grad=args.requires_thres_grad,
+                spike_output=not args.no_spike_output,
+                act_fun=args.act_fun,
+                temporal_flatten=args.temporal_flatten,
+                layer_by_layer=args.layer_by_layer,
+                n_groups=args.n_groups,
+                n_encode_type=args.n_encode_type,
+                n_preact=args.n_preact,
+                tet_loss=args.tet_loss,
+                sew_cnf=args.sew_cnf,
+                conv_type=args.conv_type,
+            )
+            model = model.cuda() # Don't forget to move the new model to the GPU
+
+    else:
+        loader_train, loader_eval, mixup_active, mixup_fn = eval('get_%s_data' % args.dataset)(
+            batch_size=args.batch_size,
+            step=args.step,
+            args=args,
+            _logge=_logger,
+            data_config=data_config,
+            num_aug_splits=num_aug_splits,
+            size=args.event_size,
+            mix_up=args.mix_up,
+            cut_mix=args.cut_mix,
+            event_mix=args.event_mix,
+            beta=args.cutmix_beta,
+            prob=args.cutmix_prob,
+            gaussian_n=args.gaussian_n,
+            num=args.cutmix_num,
+            noise=args.cutmix_noise,
+            num_classes=args.num_classes,
+            rand_aug=args.rand_aug,
+            randaug_n=args.randaug_n,
+            randaug_m=args.randaug_m,
+            portion=args.train_portion,
+            _logger=_logger,
+        )
     # _logger.info('train_loader:\n{}\nval_loader:\n{}'.format(loader_train, loader_eval))
     if args.loss_fn == 'mse':
         train_loss_fn = UnilateralMse(1.)
