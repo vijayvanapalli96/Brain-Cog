@@ -1807,15 +1807,15 @@ def get_my_custom_data(batch_size, step, **kwargs):
 
     # --- Define separate transforms for training and testing ---
     train_transforms = transforms.Compose([
-        lambda x: torch.tensor(x, dtype=torch.float),
-        lambda x: F.interpolate(x, size=[size, size], mode='bilinear', align_corners=True),
+        to_float_tensor,
+        ResizeInterpolate(size),
         transforms.RandomHorizontalFlip(),
         transforms.RandomRotation(15),
     ])
 
     test_transforms = transforms.Compose([
-        lambda x: torch.tensor(x, dtype=torch.float),
-        lambda x: F.interpolate(x, size=[size, size], mode='bilinear', align_corners=True),
+        to_float_tensor,
+        ResizeInterpolate(size),
     ])
 
     # --- Wrap datasets with DiskCachedDataset ---
@@ -1851,3 +1851,17 @@ def get_my_custom_data(batch_size, step, **kwargs):
 
     return train_loader, test_loader, False, None, num_classes
 # --- End Custom Dataset Integration ---
+
+# --- Helper Functions for Windows Multiprocessing ---
+def to_float_tensor(x):
+    """Converts data to a float tensor."""
+    return torch.tensor(x, dtype=torch.float)
+
+class ResizeInterpolate:
+    """A callable class for resizing and interpolating, which is pickle-safe."""
+    def __init__(self, size):
+        self.size = size
+
+    def __call__(self, x):
+        return F.interpolate(x, size=[self.size, self.size], mode='bilinear', align_corners=True)
+# ----------------------------------------------------

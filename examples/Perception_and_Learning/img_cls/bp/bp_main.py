@@ -68,10 +68,10 @@ def get_config():
         default=None,
         help='resume training from a checkpoint')
     parser.add_argument(
-        "--dataset_params",
-        type=json.loads,
-        default={},
-        help='A dict according to the official train_classifier API')
+        '--sensor_size',
+        type=str,
+        default="346,260,2",
+        help='The sensor size of your event camera, e.g., "346,260,2"')
     parser.add_argument(
         "--model_params",
         type=json.loads,
@@ -133,11 +133,12 @@ if __name__ == '__main__':
         num_classes = 10
     elif args.dataset == "my_custom_data":
         # Point the data loader to our newly grouped dataset
-        args.dataset_params['data_path'] = 'data/my_grouped_recordings'
+        sensor_size_list = [int(i) for i in args.sensor_size.split(',')]
+        dataset_params = {'data_path': 'data/my_grouped_recordings', 'sensor_size': sensor_size_list}
         train_loader, test_loader, _, _, num_classes = get_my_custom_data(
             args.batch_size,
             step=args.step,
-            **args.dataset_params
+            **dataset_params
         )
     else:
         raise('Not implemented.')

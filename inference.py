@@ -25,10 +25,10 @@ def run_inference(model_path, input_file, sensor_size_str, device_str, step, nod
     num_classes = len(idx_to_class)
 
     try:
-        sensor_w, sensor_h, _ = map(int, sensor_size_str.strip('[]').split(','))
+        sensor_w, sensor_h, _ = map(int, sensor_size_str.split(','))
         sensor_size = (sensor_w, sensor_h, 2)
     except Exception:
-        raise ValueError("Invalid sensor_size format. Expected '[width,height,2]', e.g., '[346,260,2]'")
+        raise ValueError("Invalid sensor_size format. Expected 'width,height,channels', e.g., '346,260,2'")
 
     # --- 2. Load the Model ---
     print(f"Loading model from {model_path}...")
@@ -90,7 +90,7 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='SNN Inference Script')
     parser.add_argument('--model_path', type=str, required=True, help='Path to the trained model checkpoint (.pth file).')
     parser.add_argument('--input_file', type=str, required=True, help='Path to the input event file (.aedat4 or .csv).')
-    parser.add_argument('--sensor_size', type=str, default='[346,260,2]', help="Camera resolution as a string, e.g., '[346,260,2]'")
+    parser.add_argument('--sensor_size', type=str, default='346,260,2', help="Camera resolution as a string, e.g., '346,260,2'")
     parser.add_argument('--device', type=str, default='cpu', help="Device to use ('cpu' or 'cuda:0').")
     parser.add_argument('--step', type=int, default=8, help='SNN simulation time steps (must match training).')
     parser.add_argument('--node_type', type=str, default='LIFNode', help='Neuron type used during training.')
