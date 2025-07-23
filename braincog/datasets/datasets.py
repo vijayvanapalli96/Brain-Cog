@@ -1730,7 +1730,7 @@ import numpy as np
 class CustomEventDataset(torch.utils.data.Dataset):
     """
     A custom dataset for user-provided event camera recordings.
-    This version can automatically load from both .aedat4 and .csv files.
+    This version loads data from .csv files.
     """
     def __init__(self, raw_data_path, transform=None):
         """
@@ -1746,10 +1746,9 @@ class CustomEventDataset(torch.utils.data.Dataset):
         for class_name in self.classes:
             class_idx = self.class_to_idx[class_name]
             class_dir = os.path.join(raw_data_path, class_name)
-            # Find both .aedat4 and .csv files
-            for extension in ["*.aedat4", "*.csv"]:
-                for filepath in glob.glob(os.path.join(class_dir, extension)):
-                    self.samples.append((filepath, class_idx))
+            # Find only .csv files
+            for filepath in glob.glob(os.path.join(class_dir, "*.csv")):
+                self.samples.append((filepath, class_idx))
 
     def __len__(self):
         return len(self.samples)
@@ -1757,19 +1756,13 @@ class CustomEventDataset(torch.utils.data.Dataset):
     def __getitem__(self, idx):
         filepath, target = self.samples[idx]
         
-        # Check the file extension and load accordingly
-        if filepath.endswith('.aedat4'):
-            events = tonic.io.read_aedat4(filepath)
-        elif filepath.endswith('.csv'):
-            # Load from CSV, assuming a header and t,x,y,p format
-            events_np = np.loadtxt(filepath, delimiter=',', skiprows=1, dtype=np.int64)
-            events = np.core.records.fromarrays(
-                events_np.T, 
-                names='t,x,y,p',
-                formats='i8,i2,i2,i2'
-            )
-        else:
-            raise NotImplementedError(f"File extension not supported for {filepath}")
+        # Load from CSV, assuming a header and t,x,y,p format
+        events_np = np.loadtxt(filepath, delimiter=',', skiprows=1, dtype=np.int64)
+        events = np.core.records.fromarrays(
+            events_np.T, 
+            names='t,x,y,p',
+            formats='i8,i2,i2,i2'
+        )
 
         if self.transform:
             events = self.transform(events)
