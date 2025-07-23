@@ -1,0 +1,962 @@
+{
+    "Arc_flash_sign": {
+        "bad": {
+            "count": 1,
+            "files": [
+                "ANSI_arc_flash_sign_01.svg"
+            ]
+        },
+        "good": {
+            "count": 1,
+            "files": [
+                "Arc_flash_warning_sign_06.svg"
+            ]
+        }
+    },
+    "Asphyxiating_atmosphere_sign": {
+        "maybe": {
+            "count": 1,
+            "files": [
+                "Hazardous_gas_symbol_15.svg"
+            ]
+        }
+    },
+    "Automated_external_defibrillator_sign": {
+        "good": {
+            "count": 5,
+            "files": [
+                "Automated_external_defibrillator_location_sign_04.jpg",
+                "Automated_external_defibrillator_location_sign_13.jpg",
+                "Automated_external_defibrillator_sign_04.jpg",
+                "Automated_external_defibrillator_sign_icon_07.png",
+                "Defibrillator_location_sign_03.jpg"
+            ]
+        }
+    },
+    "Automatic_start_up_sign": {
+        "bad": {
+            "count": 1,
+            "files": [
+                "Creative_automatic_start_up_sign_05.jpg"
+            ]
+        }
+    },
+    "Battery_charging_sign": {
+        "bad": {
+            "count": 2,
+            "files": [
+                "Battery_charging_sign_03.jpg",
+                "Battery_charging_symbol_vector_05.svg"
+            ]
+        },
+        "good": {
+            "count": 1,
+            "files": [
+                "Battery_charging_symbol_vector_04.svg"
+            ]
+        }
+    },
+    "Biological_hazard_sign": {
+        "good": {
+            "count": 4,
+            "files": [
+                "Biohazard_sign_PNG_12.png",
+                "Biological_hazard_sign_07.svg",
+                "Biological_hazard_sign_illustration_02.svg",
+                "Biological_hazard_warning_symbol_10.svg"
+            ]
+        }
+    },
+    "Bull_sign": {
+        "bad": {
+            "count": 1,
+            "files": [
+                "Bull_sign_graphic_04.svg"
+            ]
+        },
+        "maybe": {
+            "count": 2,
+            "files": [
+                "Bull_sign_image_10.jpg",
+                "Bull_sign_stamp_05.jpg"
+            ]
+        }
+    },
+    "Close_door_sign": {
+        "bad": {
+            "count": 2,
+            "files": [
+                "Close_door_sign_05.jpg",
+                "Close_door_sign_icon_01.jpg"
+            ]
+        }
+    },
+    "Corrosive_substance_sign": {
+        "bad": {
+            "count": 2,
+            "files": [
+                "Chemical_hazard_symbol_06.svg",
+                "Chemical_hazard_symbol_09.svg"
+            ]
+        },
+        "good": {
+            "count": 2,
+            "files": [
+                "Corrosive_substance_sign_05.svg",
+                "Corrosive_substance_warning_sign_11.svg"
+            ]
+        }
+    },
+    "Crushing_of_hands_sign": {
+        "bad": {
+            "count": 1,
+            "files": [
+                "Crushing_of_hands_sign_poster_01.jpg"
+            ]
+        }
+    },
+    "Crushing_sign": {
+        "bad": {
+            "count": 1,
+            "files": [
+                "Crushing_sign_09.jpg"
+            ]
+        }
+    },
+    "Deep_water_sign": {
+        "good": {
+            "count": 1,
+            "files": [
+                "Deep_water_sign_vector_03.svg"
+            ]
+        },
+        "maybe": {
+            "count": 1,
+            "files": [
+                "Deep_water_sign_drawing_05.jpg"
+            ]
+        }
+    },
+    "Do_not_cover_sign": {
+        "bad": {
+            "count": 2,
+            "files": [
+                "Forbidden_to_cover_symbol_08.jpg",
+                "Not_allowed_to_cover_clipart_14.png"
+            ]
+        }
+    },
+    "Do_not_extinguish_with_water_sign": {
+        "good": {
+            "count": 1,
+            "files": [
+                "Do_not_extinguish_with_water_sign_03.svg"
+            ]
+        }
+    },
+    "Do_not_spray_with_water_sign": {
+        "bad": {
+            "count": 1,
+            "files": [
+                "Anti-water_spray_emblem_picture_01.jpg"
+            ]
+        }
+    },
+    "Do_not_switch_sign": {
+        "bad": {
+            "count": 3,
+            "files": [
+                "Do_not_switch_sign_PNG_07.png",
+                "Do_not_switch_sign_clipart_01.svg",
+                "Do_not_switch_sign_vintage_03.jpg"
+            ]
+        },
+        "good": {
+            "count": 1,
+            "files": [
+                "Do_not_switch_sign_symbol_04.svg"
+            ]
+        }
+    },
+    "Do_not_touch_sign": {
+        "bad": {
+            "count": 1,
+            "files": [
+                "Do_not_touch_sign_10.jpg"
+            ]
+        }
+    },
+    "Do_not_walk_or_stand_here_sign": {
+        "bad": {
+            "count": 2,
+            "files": [
+                "Pedestrian-free_zone_image_03.jpg",
+                "Pedestrian-free_zone_image_09.jpg"
+            ]
+        }
+    },
+    "Drop_(fall)_hazard_sign": {
+        "bad": {
+            "count": 1,
+            "files": [
+                "Caution_sign_for_falling_hazard_06.jpg"
+            ]
+        }
+    },
+    "Electricity_sign": {
+        "bad": {
+            "count": 5,
+            "files": [
+                "Electric_power_logo_08.svg",
+                "Electric_shock_risk_sign_03.svg",
+                "Electric_vehicle_charging_station_symbol_06.jpg",
+                "Electricity_sign_icon_03.jpg",
+                "Plug_socket_icon_01.png"
+            ]
+        },
+        "maybe": {
+            "count": 1,
+            "files": [
+                "Electric_vehicle_charging_station_symbol_11.svg"
+            ]
+        }
+    },
+    "Emergency_exit_down_sign": {
+        "bad": {
+            "count": 1,
+            "files": [
+                "Emergency_exit_down_sign_flat_design_08.jpg"
+            ]
+        }
+    },
+    "Emergency_exit_left_sign": {
+        "bad": {
+            "count": 1,
+            "files": [
+                "Emergency_exit_left_sign_with_text_10.svg"
+            ]
+        },
+        "good": {
+            "count": 1,
+            "files": [
+                "Emergency_exit_left_sign_01.svg"
+            ]
+        }
+    },
+    "Emergency_exit_right_sign": {
+        "bad": {
+            "count": 2,
+            "files": [
+                "Emergency_exit_right_sign_symbol_09.svg",
+                "Emergency_exit_right_sign_vector_14.svg"
+            ]
+        }
+    },
+    "Emergency_exit_up_sign": {
+        "bad": {
+            "count": 2,
+            "files": [
+                "Emergency_exit_up_sign_public_domain_01.svg",
+                "Emergency_exit_up_sign_with_text_10.svg"
+            ]
+        }
+    },
+    "Emergency_stop_button_sign": {
+        "good": {
+            "count": 1,
+            "files": [
+                "Emergency_stop_button_image_13.jpg"
+            ]
+        }
+    },
+    "Emergency_telephone_sign": {
+        "bad": {
+            "count": 1,
+            "files": [
+                "Emergency_telephone_sign_vintage_03.jpg"
+            ]
+        },
+        "good": {
+            "count": 5,
+            "files": [
+                "Emergency_telephone_sign_icon_05.svg",
+                "Emergency_telephone_sign_illustration_06.svg",
+                "Emergency_telephone_sign_street_03.jpg",
+                "Emergency_telephone_sign_symbol_03.svg",
+                "Emergency_telephone_sign_vector_06.svg"
+            ]
+        }
+    },
+    "Emergency_window_with_escape_chute_sign": {
+        "bad": {
+            "count": 1,
+            "files": [
+                "Window_evacuation_sign_03.jpg"
+            ]
+        }
+    },
+    "Explosive_material_sign": {
+        "bad": {
+            "count": 2,
+            "files": [
+                "Explosive_hazard_symbol_image_09.svg",
+                "Explosive_material_warning_label_12.svg"
+            ]
+        },
+        "good": {
+            "count": 1,
+            "files": [
+                "Explosive_hazard_symbol_image_11.svg"
+            ]
+        },
+        "maybe": {
+            "count": 2,
+            "files": [
+                "Explosive_material_sign_14.jpg",
+                "Explosive_material_warning_label_04.svg"
+            ]
+        }
+    },
+    "Falling_ice_sign": {
+        "bad": {
+            "count": 1,
+            "files": [
+                "Falling_ice_danger_sign_02.jpg"
+            ]
+        },
+        "maybe": {
+            "count": 2,
+            "files": [
+                "Falling_ice_sign_04.jpg",
+                "Falling_ice_warning_sign_10.jpg"
+            ]
+        }
+    },
+    "Fire_alarm_call_point_sign": {
+        "maybe": {
+            "count": 1,
+            "files": [
+                "Fire_alarm_call_point_sign_SVG_08.svg"
+            ]
+        }
+    },
+    "Fire_emergency_telephone_sign": {
+        "maybe": {
+            "count": 1,
+            "files": [
+                "Fire_emergency_telephone_sign_02.svg"
+            ]
+        }
+    },
+    "Fire_extinguisher_sign": {
+        "bad": {
+            "count": 1,
+            "files": [
+                "Fire_extinguisher_sign_graphic_06.jpg"
+            ]
+        }
+    },
+    "Fire_ladder_sign": {
+        "bad": {
+            "count": 1,
+            "files": [
+                "Fire_ladder_sign_black_and_white_02.jpg"
+            ]
+        },
+        "good": {
+            "count": 1,
+            "files": [
+                "Fire_ladder_sign_vector_07.svg"
+            ]
+        }
+    },
+    "First_aid_sign": {
+        "good": {
+            "count": 1,
+            "files": [
+                "First_aid_sign_SVG_15.svg"
+            ]
+        }
+    },
+    "Flammable_material_sign": {
+        "bad": {
+            "count": 2,
+            "files": [
+                "Flammable_material_sign_clipart_05.svg",
+                "Flammable_material_sign_vector_14.svg"
+            ]
+        },
+        "good": {
+            "count": 4,
+            "files": [
+                "Flammable_material_sign_12.svg",
+                "Flammable_material_sign_black_and_white_01.svg",
+                "Flammable_material_sign_symbol_04.svg",
+                "Flammable_material_warning_sign_06.svg"
+            ]
+        }
+    },
+    "Flood_zone_sign": {
+        "bad": {
+            "count": 2,
+            "files": [
+                "Flood_zone_boundary_sign_06.jpg",
+                "Flood_zone_warning_sign_04.svg"
+            ]
+        }
+    },
+    "Forklift_trucks_and_other_industrial_vehicles_sign": {
+        "bad": {
+            "count": 1,
+            "files": [
+                "Forklift_truck_symbol_sign_08.svg"
+            ]
+        }
+    },
+    "General_mandatory_action_sign": {
+        "bad": {
+            "count": 1,
+            "files": [
+                "Mandatory_action_road_sign_image_15.jpg"
+            ]
+        },
+        "maybe": {
+            "count": 1,
+            "files": [
+                "Mandatory_action_road_sign_image_10.jpg"
+            ]
+        }
+    },
+    "General_prohibition_sign": {
+        "bad": {
+            "count": 7,
+            "files": [
+                "No_cell_phone_use_symbol_13.png",
+                "No_entry_sign_01.jpg",
+                "No_entry_sign_07.svg",
+                "No_food_or_drink_icon_07.jpg",
+                "No_swimming_sign_05.jpg",
+                "No_trespassing_sign_15.jpg",
+                "Warning_symbol_10.jpg"
+            ]
+        },
+        "maybe": {
+            "count": 1,
+            "files": [
+                "Prohibited_symbol_07.jpg"
+            ]
+        }
+    },
+    "General_warning_sign": {
+        "bad": {
+            "count": 2,
+            "files": [
+                "Danger_warning_image_05.jpg",
+                "Danger_warning_image_08.svg"
+            ]
+        },
+        "good": {
+            "count": 1,
+            "files": [
+                "General_safety_alert_sign_02.svg"
+            ]
+        }
+    },
+    "Guard_dog_sign": {
+        "bad": {
+            "count": 1,
+            "files": [
+                "Guard_dog_sign_black_and_white_10.jpg"
+            ]
+        },
+        "good": {
+            "count": 3,
+            "files": [
+                "Guard_dog_sign_design_01.svg",
+                "Guard_dog_sign_symbol_01.svg",
+                "Guard_dog_sign_warning_08.svg"
+            ]
+        },
+        "maybe": {
+            "count": 1,
+            "files": [
+                "Guard_dog_sign_warning_03.jpg"
+            ]
+        }
+    },
+    "High_sound_volume_levels_sign": {
+        "good": {
+            "count": 1,
+            "files": [
+                "High_sound_volume_levels_sign_01.svg"
+            ]
+        }
+    },
+    "High_surf_or_large_breaking_waves_sign": {
+        "bad": {
+            "count": 1,
+            "files": [
+                "Large_waves_danger_sign_01.jpg"
+            ]
+        }
+    },
+    "Hot_steam_sign": {
+        "bad": {
+            "count": 1,
+            "files": [
+                "Steam_warning_sign_image_10.jpg"
+            ]
+        },
+        "maybe": {
+            "count": 2,
+            "files": [
+                "Steam_warning_sign_image_04.svg",
+                "Steam_warning_sign_image_07.jpg"
+            ]
+        }
+    },
+    "Incoming_tides_sign": {
+        "bad": {
+            "count": 1,
+            "files": [
+                "Coastal_flood_sign_05.jpg"
+            ]
+        },
+        "maybe": {
+            "count": 1,
+            "files": [
+                "Tide_safety_sign_02.svg"
+            ]
+        }
+    },
+    "Keep_clear_sign": {
+        "bad": {
+            "count": 1,
+            "files": [
+                "Keep_clear_sign_cartoon_11.png"
+            ]
+        },
+        "maybe": {
+            "count": 1,
+            "files": [
+                "Keep_clear_sign_road_04.svg"
+            ]
+        }
+    },
+    "Landslide_zone_sign": {
+        "bad": {
+            "count": 1,
+            "files": [
+                "Landslide_zone_marker_06.jpg"
+            ]
+        },
+        "good": {
+            "count": 2,
+            "files": [
+                "Landslide_danger_sign_02.jpg",
+                "Landslide_zone_sign_08.svg"
+            ]
+        }
+    },
+    "Laser_beam_sign": {
+        "good": {
+            "count": 1,
+            "files": [
+                "Laser_beam_sign_icon_04.svg"
+            ]
+        }
+    },
+    "Magnetic_field_sign": {
+        "good": {
+            "count": 3,
+            "files": [
+                "Magnetic_field_sign_10.svg",
+                "Magnetic_field_sign_art_15.svg",
+                "Magnetic_field_sign_image_14.svg"
+            ]
+        }
+    },
+    "Non_ionising_radiation_sign": {
+        "good": {
+            "count": 2,
+            "files": [
+                "Non_ionising_radiation_caution_sign_01.svg",
+                "Non_ionising_radiation_warning_sign_09.svg"
+            ]
+        }
+    },
+    "No_access_for_unauthorised_persons_sign": {
+        "bad": {
+            "count": 2,
+            "files": [
+                "Caution_no_entry_sign_10.jpg",
+                "Do_not_enter_sign_04.jpg"
+            ]
+        },
+        "maybe": {
+            "count": 1,
+            "files": [
+                "Keep_out_sign_07.jpg"
+            ]
+        }
+    },
+    "No_activated_mobile_phones_sign": {
+        "bad": {
+            "count": 1,
+            "files": [
+                "No_smartphones_allowed_symbol_11.jpg"
+            ]
+        }
+    },
+    "No_dogs_allowed_sign": {
+        "bad": {
+            "count": 4,
+            "files": [
+                "Dog_exclusion_notice_11.jpg",
+                "Forbidden_dog_area_image_15.webp",
+                "No_dog_entry_sign_04.jpg",
+                "Pet_restriction_symbol_04.jpg"
+            ]
+        }
+    },
+    "No_food_or_drink_sign": {
+        "bad": {
+            "count": 1,
+            "files": [
+                "No_food_or_drink_sign_warning_10.jpg"
+            ]
+        }
+    },
+    "No_heavy_load_sign": {
+        "bad": {
+            "count": 2,
+            "files": [
+                "No_heavy_load_sign_10.jpg",
+                "No_heavy_load_sign_SVG_01.svg"
+            ]
+        }
+    },
+    "No_metallic_articles_sign": {
+        "bad": {
+            "count": 2,
+            "files": [
+                "Anti-metal_items_image_01.jpg",
+                "Metal-free_zone_warning_sign_04.jpg"
+            ]
+        }
+    },
+    "No_open_flame_sign": {
+        "bad": {
+            "count": 3,
+            "files": [
+                "No_candles_allowed_label_04.jpg",
+                "No_fire_allowed_icon_13.svg",
+                "No_fireworks_permitted_symbol_07.png"
+            ]
+        }
+    },
+    "No_photography_sign": {
+        "bad": {
+            "count": 6,
+            "files": [
+                "No_filming_sign_image_06.jpg",
+                "No_flash_photography_sign_05.jpg",
+                "No_photo_taking_sign_10.jpg",
+                "No_photos_permitted_sign_13.jpg",
+                "No_pictures_allowed_icon_04.jpg",
+                "No_pictures_sign_symbol_01.jpg"
+            ]
+        }
+    },
+    "No_smoking_sign": {
+        "bad": {
+            "count": 1,
+            "files": [
+                "No_smoking_symbol_vector_06.svg"
+            ]
+        }
+    },
+    "Optical_radiation_sign": {
+        "maybe": {
+            "count": 1,
+            "files": [
+                "Optical_radiation_sign_14.svg"
+            ]
+        }
+    },
+    "Overhead_load_sign": {
+        "bad": {
+            "count": 2,
+            "files": [
+                "Overhead_clearance_limit_sign_04.svg",
+                "Overhead_height_limit_road_sign_13.svg"
+            ]
+        }
+    },
+    "Overhead_obstacle_sign": {
+        "bad": {
+            "count": 2,
+            "files": [
+                "Overhead_height_restriction_sign_11.jpg",
+                "Overhead_obstacle_sign_03.jpg"
+            ]
+        }
+    },
+    "Oxidising_substance_sign": {
+        "bad": {
+            "count": 3,
+            "files": [
+                "Oxidising_substance_danger_sign_14.svg",
+                "Oxidising_substance_hazard_symbol_02.svg",
+                "Oxidising_substance_sign_PNG_04.svg"
+            ]
+        }
+    },
+    "Quicksand_or_deep_mud_sign": {
+        "maybe": {
+            "count": 1,
+            "files": [
+                "Quicksand_warning_sign_11.jpg"
+            ]
+        }
+    },
+    "Radioactive_material_or_ionizing_radiation_sign": {
+        "bad": {
+            "count": 2,
+            "files": [
+                "Radioactive_safety_sign_04.svg",
+                "Radioactivity_danger_sign_06.svg"
+            ]
+        },
+        "maybe": {
+            "count": 1,
+            "files": [
+                "Ionizing_radiation_symbol_12.svg"
+            ]
+        }
+    },
+    "Sand_yachting_sign": {
+        "good": {
+            "count": 1,
+            "files": [
+                "Sand_yachting_sign_07.svg"
+            ]
+        }
+    },
+    "Shark_sign": {
+        "maybe": {
+            "count": 1,
+            "files": [
+                "Shark_sign_07.jpg"
+            ]
+        }
+    },
+    "Slippery_surface_sign": {
+        "bad": {
+            "count": 1,
+            "files": [
+                "Slippery_surface_sign_black_and_white_06.jpg"
+            ]
+        },
+        "good": {
+            "count": 3,
+            "files": [
+                "Slippery_surface_road_sign_11.svg",
+                "Slippery_surface_safety_sign_13.svg",
+                "Slippery_surface_sign_PNG_07.png"
+            ]
+        }
+    },
+    "Slipway_sign": {
+        "bad": {
+            "count": 2,
+            "files": [
+                "Slipway_sign_black_and_white_04.jpg",
+                "Slipway_sign_creative_commons_08.jpg"
+            ]
+        }
+    },
+    "Step_down_sign": {
+        "bad": {
+            "count": 1,
+            "files": [
+                "Step_down_sign_photo_07.jpg"
+            ]
+        }
+    },
+    "Stretcher_sign": {
+        "bad": {
+            "count": 2,
+            "files": [
+                "Stretcher_sign_digital_artwork_15.jpg",
+                "Stretcher_sign_photos_08.jpg"
+            ]
+        }
+    },
+    "Strong_winds_sign": {
+        "bad": {
+            "count": 2,
+            "files": [
+                "Gusts_warning_sign_04.png",
+                "Windy_conditions_signpost_05.jpg"
+            ]
+        }
+    },
+    "Substance_or_mixture_presenting_a_health_hazard_sign": {
+        "good": {
+            "count": 1,
+            "files": [
+                "Substance_or_mixture_presenting_a_health_hazard_sign_02.svg"
+            ]
+        }
+    },
+    "Sudden_loud_noise_sign": {
+        "good": {
+            "count": 1,
+            "files": [
+                "Sudden_loud_noise_sign_03.svg"
+            ]
+        }
+    },
+    "Toxic_material_sign": {
+        "bad": {
+            "count": 1,
+            "files": [
+                "Biohazard_symbol_image_08.png"
+            ]
+        }
+    },
+    "Unprotected_edge_sign": {
+        "good": {
+            "count": 1,
+            "files": [
+                "Unprotected_edge_sign_public_domain_09.svg"
+            ]
+        }
+    },
+    "Unstable_cliff_edge_sign": {
+        "bad": {
+            "count": 1,
+            "files": [
+                "Unstable_cliff_edge_sign_07.jpg"
+            ]
+        }
+    },
+    "Use_footbridge_sign": {
+        "bad": {
+            "count": 1,
+            "files": [
+                "Footbridge_sign_with_people_14.jpg"
+            ]
+        },
+        "maybe": {
+            "count": 1,
+            "files": [
+                "Footbridge_sign_symbol_03.jpg"
+            ]
+        }
+    },
+    "Use_handrail_sign": {
+        "bad": {
+            "count": 4,
+            "files": [
+                "Handrail_illustration_12.jpg",
+                "Handrail_pictogram_06.jpg",
+                "Handrail_pictogram_10.jpg",
+                "Handrail_pictogram_14.jpg"
+            ]
+        }
+    },
+    "Use_this_stretch_of_road_sign": {
+        "bad": {
+            "count": 3,
+            "files": [
+                "Stretch_of_road_directional_sign_02.jpg",
+                "Stretch_of_road_information_sign_12.jpg",
+                "Stretch_of_road_warning_sign_15.jpg"
+            ]
+        }
+    },
+    "Use_walkway_sign": {
+        "bad": {
+            "count": 3,
+            "files": [
+                "Pedestrian_walkway_warning_sign_images_09.jpg",
+                "Use_walkway_road_sign_photos_07.jpg",
+                "Use_walkway_sign_04.jpg"
+            ]
+        },
+        "maybe": {
+            "count": 1,
+            "files": [
+                "Use_walkway_sign_02.jpg"
+            ]
+        }
+    },
+    "Wear_eye_protection_sign": {
+        "bad": {
+            "count": 1,
+            "files": [
+                "Safety_glasses_sign_15.jpg"
+            ]
+        },
+        "good": {
+            "count": 1,
+            "files": [
+                "Wear_eye_protection_warning_01.svg"
+            ]
+        }
+    },
+    "Wear_high-visibility_clothing_sign": {
+        "good": {
+            "count": 1,
+            "files": [
+                "Safety_vest_sign_05.jpg"
+            ]
+        }
+    },
+    "Wear_safety_footwear_sign": {
+        "bad": {
+            "count": 1,
+            "files": [
+                "Wear_safety_footwear_sign_04.svg"
+            ]
+        },
+        "good": {
+            "count": 2,
+            "files": [
+                "Safety_boots_sign_07.svg",
+                "Safety_footwear_mandatory_sign_04.svg"
+            ]
+        },
+        "maybe": {
+            "count": 1,
+            "files": [
+                "Safety_shoes_sign_07.svg"
+            ]
+        }
+    },
+    "Wear_safety_harness_sign": {
+        "bad": {
+            "count": 1,
+            "files": [
+                "Safety_harness_mandatory_sign_13.svg"
+            ]
+        }
+    },
+    "Wear_safety_helmet_sign": {
+        "good": {
+            "count": 2,
+            "files": [
+                "Safety_helmet_protection_sign_07.svg",
+                "Safety_helmet_protection_sign_11.svg"
+            ]
+        },
+        "maybe": {
+            "count": 1,
+            "files": [
+                "Safety_helmet_area_sign_01.jpg"
+            ]
+        }
+    }
+}

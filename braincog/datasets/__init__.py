@@ -26,7 +26,8 @@ dvs_data = [
     'hmdbdvs',
     'shd',
     'ntidigits',
-    'nmnist'
+    'nmnist',
+    'my_custom_data'
 ]
 
 

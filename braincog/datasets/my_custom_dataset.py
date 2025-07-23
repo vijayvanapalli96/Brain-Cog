@@ -49,9 +49,10 @@ if __name__ == '__main__':
 
     # 2. YOU MUST CHANGE THIS VALUE to match your camera's resolution.
     #    This is the most common source of errors.
-    #    The format is (Height, Width, Polarity_Channels=2).
+    #    The format is (Width, Height, Polarity_Channels=2).
     sensor_size = (346, 260, 2)
-    # --------------------------------------------------------------------------
+    # -------------------------------------
+    # clear-------------------------------------
 
     # 3. Define the pipeline for converting raw events to a tensor.
     step = 10 # Number of time steps

@@ -1725,81 +1725,131 @@ def get_HMDBDVS_data(batch_size, step, **kwargs):
 
 # --- Custom Dataset Integration Starts Here ---
 import glob
+import numpy as np
 
 class CustomEventDataset(torch.utils.data.Dataset):
     """
     A custom dataset for user-provided event camera recordings.
-    This version correctly finds all .aedat4 files in subdirectories.
+    This version can automatically load from both .aedat4 and .csv files.
     """
     def __init__(self, raw_data_path, transform=None):
         """
         Args:
-            raw_data_path (str): The path to the directory containing class sub-folders of .aedat4 files.
+            raw_data_path (str): The path to the directory containing class sub-folders of event files.
             transform (callable, optional): A transform to be applied to a sample.
         """
         self.transform = transform
-        self.classes = sorted([d.name for d in os.scandir(raw_data_path) if d.is_dir() and d.name != 'custom_cache'])
+        self.classes = sorted([d.name for d in os.scandir(raw_data_path) if d.is_dir() and 'cache' not in d.name])
         self.class_to_idx = {cls_name: i for i, cls_name in enumerate(self.classes)}
 
         self.samples = []
         for class_name in self.classes:
             class_idx = self.class_to_idx[class_name]
             class_dir = os.path.join(raw_data_path, class_name)
-            for filepath in glob.glob(os.path.join(class_dir, '*.aedat4')):
-                self.samples.append((filepath, class_idx))
+            # Find both .aedat4 and .csv files
+            for extension in ["*.aedat4", "*.csv"]:
+                for filepath in glob.glob(os.path.join(class_dir, extension)):
+                    self.samples.append((filepath, class_idx))
 
     def __len__(self):
         return len(self.samples)
 
     def __getitem__(self, idx):
         filepath, target = self.samples[idx]
-        events = tonic.io.read_aedat4(filepath)
+        
+        # Check the file extension and load accordingly
+        if filepath.endswith('.aedat4'):
+            events = tonic.io.read_aedat4(filepath)
+        elif filepath.endswith('.csv'):
+            # Load from CSV, assuming a header and t,x,y,p format
+            events_np = np.loadtxt(filepath, delimiter=',', skiprows=1, dtype=np.int64)
+            events = np.core.records.fromarrays(
+                events_np.T, 
+                names='t,x,y,p',
+                formats='i8,i2,i2,i2'
+            )
+        else:
+            raise NotImplementedError(f"File extension not supported for {filepath}")
+
         if self.transform:
             events = self.transform(events)
         return events, target
 
 def get_my_custom_data(batch_size, step, **kwargs):
     """
-    Creates data loaders for the user's custom event data.
+    Creates data loaders for the user's custom event data,
+    including a proper train/test split and data augmentation.
     """
-    my_data_path = "data/my_recordings"
-    sensor_size = (346, 260, 2) # Your camera's resolution (Height, Width)
-    size = 48 # Final spatial size for the model
+    my_data_path = kwargs.get("data_path", "data/my_recordings")
+    sensor_size = kwargs.get("sensor_size", None) # User MUST provide this
+    if sensor_size is None:
+        raise ValueError("sensor_size must be provided for custom datasets. e.g., --dataset_params \"{'sensor_size': [346, 260, 2]}\"")
 
+    size = kwargs.get("size", 48)  # Final spatial size for the model
+    portion = kwargs.get("portion", 0.9) # 90% for training, 10% for testing
+
+    # Initial transform to convert events to frames
     event_to_frame_transform = transforms.Compose([
         tonic.transforms.ToFrame(sensor_size=sensor_size, n_time_bins=step),
     ])
 
+    # Create the raw dataset instance
     raw_dataset = CustomEventDataset(
         raw_data_path=my_data_path,
         transform=event_to_frame_transform
     )
-    print(f"Found {len(raw_dataset)} custom samples in {len(raw_dataset.classes)} classes.")
+    print(f"Found {len(raw_dataset)} total custom samples in {len(raw_dataset.classes)} classes.")
 
-    # For now, we use the same dataset for training and validation.
-    # In a real scenario, you would create a train/test split.
-    final_transforms = transforms.Compose([
+    if len(raw_dataset) == 0:
+        raise ValueError(f"No samples found in '{my_data_path}'. Please check the path and data structure.")
+
+    # --- Create a Train/Test Split ---
+    num_train = int(portion * len(raw_dataset))
+    num_test = len(raw_dataset) - num_train
+    # Use a fixed generator for reproducibility
+    train_dataset, test_dataset = torch.utils.data.random_split(
+        raw_dataset, [num_train, num_test],
+        generator=torch.Generator().manual_seed(42)
+    )
+
+    # --- Define separate transforms for training and testing ---
+    train_transforms = transforms.Compose([
+        lambda x: torch.tensor(x, dtype=torch.float),
+        lambda x: F.interpolate(x, size=[size, size], mode='bilinear', align_corners=True),
+        transforms.RandomHorizontalFlip(),
+        transforms.RandomRotation(15),
+    ])
+
+    test_transforms = transforms.Compose([
         lambda x: torch.tensor(x, dtype=torch.float),
         lambda x: F.interpolate(x, size=[size, size], mode='bilinear', align_corners=True),
     ])
 
+    # --- Wrap datasets with DiskCachedDataset ---
     cache_path = os.path.join(my_data_path, "custom_cache")
-    cached_dataset = DiskCachedDataset(raw_dataset,
-                                       cache_path=cache_path,
-                                       transform=final_transforms)
-    
+
+    # We apply the final transforms after caching
+    cached_train_dataset = DiskCachedDataset(train_dataset,
+                                             cache_path=os.path.join(cache_path, 'train'),
+                                             transform=train_transforms)
+
+    cached_test_dataset = DiskCachedDataset(test_dataset,
+                                            cache_path=os.path.join(cache_path, 'test'),
+                                            transform=test_transforms)
+
     num_classes = len(raw_dataset.classes)
     if num_classes == 0:
         raise ValueError("No classes found in the custom data directory. Make sure it contains sub-folders for each class.")
 
-    train_loader = torch.utils.data.DataLoader(cached_dataset,
+    # --- Create DataLoaders ---
+    train_loader = torch.utils.data.DataLoader(cached_train_dataset,
                                                batch_size=batch_size,
                                                shuffle=True,
                                                num_workers=kwargs.get('workers', 2),
                                                pin_memory=True,
                                                drop_last=True)
-    
-    test_loader = torch.utils.data.DataLoader(cached_dataset,
+
+    test_loader = torch.utils.data.DataLoader(cached_test_dataset,
                                               batch_size=batch_size,
                                               shuffle=False,
                                               num_workers=kwargs.get('workers', 2),
@@ -1807,3 +1857,4 @@ def get_my_custom_data(batch_size, step, **kwargs):
                                               drop_last=False)
 
     return train_loader, test_loader, False, None, num_classes
+# --- End Custom Dataset Integration ---
